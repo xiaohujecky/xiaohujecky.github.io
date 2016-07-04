@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+##Personal Info
+Name:阮晓虎   
+Birth: 1986.7   
+Sex: Male   
+Tel:+86-13124757621 E-mail:xiaohu_ruan@163.com
+##Working Experience
+* 2014.2-now **阿里集团高德地图研发中心**－基础技术研发部图像组  
+[**项目1**] :地图数据生产道路交通标志**红圆、蓝圆、黄三角**自动识别  
+     \>技术：Adaboost级联分类器，深度学习CNN框架caffe实践，AlexNet、NIN等网络结构应用；多种特征的Adaboosting分类器训练，特征选择，建立样本迭代机制  
+     \>效果：算法在众包、高精、智能硬件、DVR等数据源上（测试集规模20w左右）召回率达98%，准确率90～95%，百图错误率(FalseAlarm per hundred)约0.25左右；  
+     \>应用：算法在高德数据生产线的表现，相比人工提效达200%；   
+[**项目2**] :地图数据生产道路交通标志**蓝绿色路牌**自动识别   
+     \>技术：颜色、GraphBase等图像分割，多特征融合、SVM分类器/随即森林分类器迭代循环训练  
+     \>效果：在测试集上识别蓝绿色道路标志牌物理点召回率达80%(后采用CNN深度学习该项指标已被提升至96%);   
+[**项目3**] :地图数据生产道路交通标志**地面行车引导线**自动识别   
+     \>技术：采用消失点算法Locally adaptive soft-voting(LASV)确定道路数据采集图像的消失点，由消失点对图像做俯视图转换，在转换过后的图像上采用cascade级联分类器+CNN细分类，得出最终识别结果     
+     \>效果：在高精图像上召回达91%（最后组内其他人采用FCN方法检测，召回93%左右），百图噪声1.2左右   
+[**项目4**] :基于Faster RCNN的蓝方牌矢量化   
+     \>技术：Faster-rcnn目标检测算法，OCR(了解)   
+[**项目5**] :街景图像全景图拼接  
+    \>技术：SIFT匹配，RANSAC算法，摄像头参数估计，拼缝矫正As Projective As Possiable(APAP)算法，球面坐标转换   
+    \>效果：该全景图拼接算法为高德地图2014年末的全景图上线提供重要支持；
+
+##Skills   
+* Program Language : C/C++, Python, Shell   
+* Professional : Image Processing(SIFT, SURF, LBP, HOG, PCA), Machine Learning(Adaboost, SVM, Random Forest, K-means, KNN, LDA, Naive Bayes, HMM), Deep learning(Logical Regression, Gradient decrease, CNN, Faster-rcnn) (<To be learning> FCN, SSPNet, YOLO, SSD )   
+
+##Eeducation
+* 2011.09—2014.06 **硕士** 中科院半导体研究所 高速电路与神经网络实验室 电子信息工程  
+研究方向:图像、视频处理，模式识别，机器学习  
+* 2007.09—2011.06 **本科** 中央民族大学 信息工程学院 电子信息工程
+
+## FULL CV
+* 目前，因为要去杭州发展，为了找工作，在此搭建临时页面^_^，等工作敲定，此后会定期更新内容，沉下心来学东西；
+* [简历在此](https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E2years.pdf)
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h2 id="personalinfo">Personal Info</h2>
+
+<p>Name:阮晓虎 <br>
+Birth: 1986.7 <br>
+Sex: Male <br>
+Tel:+86-13124757621 E-mail:xiaohu_ruan@163.com</p>
+
+<h2 id="workingexperience">Working Experience</h2>
+
+<ul>
+<li>2014.2-now <strong>阿里集团高德地图研发中心</strong>－基础技术研发部图像组 <br>
+[<strong>项目1</strong>] :地图数据生产道路交通标志<strong>红圆、蓝圆、黄三角</strong>自动识别 <br>
+ &gt;技术：Adaboost级联分类器，深度学习CNN框架caffe实践，AlexNet、NIN等网络结构应用；多种特征的Adaboosting分类器训练，特征选择，建立样本迭代机制 <br>
+ &gt;效果：算法在众包、高精、智能硬件、DVR等数据源上（测试集规模20w左右）召回率达98%，准确率90～95%，百图错误率(FalseAlarm per hundred)约0.25左右； <br>
+ &gt;应用：算法在高德数据生产线的表现，相比人工提效达200%； <br>
+[<strong>项目2</strong>] :地图数据生产道路交通标志<strong>蓝绿色路牌</strong>自动识别 <br>
+ &gt;技术：颜色、GraphBase等图像分割，多特征融合、SVM分类器/随即森林分类器迭代循环训练 <br>
+ &gt;效果：在测试集上识别蓝绿色道路标志牌物理点召回率达80%(后采用CNN深度学习该项指标已被提升至96%); <br>
+[<strong>项目3</strong>] :地图数据生产道路交通标志<strong>地面行车引导线</strong>自动识别 <br>
+ &gt;技术：采用消失点算法Locally adaptive soft-voting(LASV)确定道路数据采集图像的消失点，由消失点对图像做俯视图转换，在转换过后的图像上采用cascade级联分类器+CNN细分类，得出最终识别结果 <br>
+ &gt;效果：在高精图像上召回达91%（最后组内其他人采用FCN方法检测，召回93%左右），百图噪声1.2左右 <br>
+[<strong>项目4</strong>] :基于Faster RCNN的蓝方牌矢量化 <br>
+ &gt;技术：Faster-rcnn目标检测算法，OCR(了解) <br>
+[<strong>项目5</strong>] :街景图像全景图拼接 <br>
+&gt;技术：SIFT匹配，RANSAC算法，摄像头参数估计，拼缝矫正As Projective As Possiable(APAP)算法，球面坐标转换 <br>
+&gt;效果：该全景图拼接算法为高德地图2014年末的全景图上线提供重要支持；</li>
+</ul>
+
+<h2 id="skills">Skills</h2>
+
+<ul>
+<li>Program Language : C/C++, Python, Shell   </li>
+<li>Professional : Image Processing(SIFT, SURF, LBP, HOG, PCA), Machine Learning(Adaboost, SVM, Random Forest, K-means, KNN, LDA, Naive Bayes, HMM), Deep learning(Logical Regression, Gradient decrease, CNN, Faster-rcnn) (<to be="" learning=""> FCN, SSPNet, YOLO, SSD )   </to></li>
+</ul>
+
+<h2 id="eeducation">Eeducation</h2>
+
+<ul>
+<li>2011.09—2014.06 <strong>硕士</strong> 中科院半导体研究所 高速电路与神经网络实验室 电子信息工程 <br>
+研究方向:图像、视频处理，模式识别，机器学习  </li>
+<li>2007.09—2011.06 <strong>本科</strong> 中央民族大学 信息工程学院 电子信息工程</li>
+</ul>
+
+<h2 id="fullcv">FULL CV</h2>
+
+<ul>
+<li>目前，因为要去杭州发展，为了找工作，在此搭建临时页面^_^，等工作敲定，此后会定期更新内容，沉下心来学东西；</li>
+<li><a href="https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E2years.pdf">简历在此</a></li>
+</ul>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "xiaohu.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
