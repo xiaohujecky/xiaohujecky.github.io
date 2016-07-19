@@ -30,8 +30,8 @@
 1.配置
   1.1 基本配置  
 ```bash
-  $ git config --global user.name "John Doe"
-  $ git config --global user.email johndoe@example.com 
+    $ git config --global user.name "John Doe"
+    $ git config --global user.email johndoe@example.com 
 ```
   /etc/gitconfig文件:系统中对所有用户都普遍适用的配置。若使用 git config 时 用 --system 选项,读写的就是这个文件。   
   ~/.gitconfig文件:用户目录下的配置文件只适用于该用户。若使用 git config 时 用 --global 选项,读写的就是这个文件。 
@@ -39,28 +39,28 @@
 
   还有一个比较常用的是,在解决合并冲突时使用哪种差异分析工具。比如要改用 vimdiff 的话: 
 ```
-  $ git config --global merge.tool vimdiff 
+    $ git config --global merge.tool vimdiff 
 ```
   Git 可以理解 kdiff3,tkdiff,meld,xxdiff,emerge,vimdiff,gvimdiff,ecmerge, 和 opendiff 等合并工具的输出信息。 
 
   修改编辑器：一般可能会是 Vi 或者 Vim 
 ```
-  git config --global core.editor emacs 
+    $ git config --global core.editor emacs 
 ```
 
   查看配置：
 ```
-$ git config --list 
+    $ git config --list 
 ```
 
-	1.2 Git 命令别名 
+1.2 Git 命令别名    
 	可以用 git config 为命令设置别名 
 ```
 	$ git config --global alias.co checkout 
 	$ git config --global alias.br branch
 	$ git config --global alias.ci commit
 	$ git config --global alias.st status 
-	$  git config --global alias.last 'log -1 HEAD' 
+	$ git config --global alias.last 'log -1 HEAD' 
 ```
 要看最后一次的提交信息,就变得简单多了: 
 ```
@@ -82,11 +82,11 @@ git last
 
   2.1 克隆：
 ```
-	git clone git://github.com/schacon/grit.git  .
+	$ git clone git://github.com/schacon/grit.git  .
 ```   
    用新名字来命名项目：
 ```
-	git clone git://github.com/schacon/grit.git mygrit 
+	$ git clone git://github.com/schacon/grit.git mygrit 
 ```  
 	2.2 忽略：
 ```
@@ -118,8 +118,8 @@ git last
 	要从 Git 中移除某个文件,就必须要从已跟踪文件清单中移除(确切地说,是从暂存区 域移除),然后提交。可以用 git rm 命令完成此项工作,并连带从工作目录中删除指定的 文件,这样以后就不会出现在未跟踪文件清单中了。 
 	如果只是简单地从工作目录中手工删除文件,运行 git status 时就会在 “Changed but not updated” 部分(也就是_未暂存_清单)看到:  
 ```
-	$rm grit.gemspec 
-	$git status
+	$ rm grit.gemspec 
+	$ git status
 	#On branch master 
 	#Changed but not updated:
 	#(use "git add/rm <file>..." to update what will be committed) 
@@ -152,8 +152,8 @@ git last
 	2.5 移动文件   
 	要在 Git 中对文件改名,可以 这么做: 
 ``` 
-	git mv README.txt README
-	git status
+	$ git mv README.txt README
+	$ git status
 	On branch master
 	Your branch is ahead of 'origin/master' by 1 commit. 
 	Changes to be committed:
@@ -168,14 +168,15 @@ git last
 ```   
 	2.6 查看提交历史   
 ```
-	git log -p -2
+	$ git log -p -2
 ```   
 	--stat,仅显示简要的增改行数统计; --pretty 选项,可以指定使用完全不同于默认格式的方式展示提交历 史。比如用 oneline 将每个提交放在一行显示,这在提交数很大时非常有用。另外还有 short,full 和 fuller 可以用,展示的信息或多或少有些不同 
 ```
-	git log --pretty=oneline
+	$ git log --pretty=oneline
 	$ git log --pretty=format:"%h %s" --graph
 	$ git log --pretty='%an %cn'
-```   	
+```  
+
 2.7 提交   
 	想要撤消刚才 的提交操作,可以使用 --amend 选项重新提交,如果刚才提交时忘了暂存某些修改,可以先补上暂存操作,然后再运行 --amend 提交: 
 ```
@@ -409,9 +410,7 @@ git last
 		你可以运行 git stash branch,这会创建一个新的分支,检出你储藏工作时的所处的提交,重新应用你的工作,如果成功,将会丢弃储藏。
 ```
 		$ git stash branch testchanges Switched to a new branch "testchanges" 
-		#
-		#
-		Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359) 
+		# Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359) 
 ```   
 		这是一个很棒的捷径来恢复储藏的工作然后在新的分支上继续当时的工作。
 	
@@ -436,8 +435,8 @@ git last
 <p>1.配置
   1.1 基本配置  </p>
 
-<pre><code class="bash">  $ git config --global user.name "John Doe"
-  $ git config --global user.email johndoe@example.com 
+<pre><code class="bash">    $ git config --global user.name "John Doe"
+    $ git config --global user.email johndoe@example.com 
 </code></pre>
 
 <p>/etc/gitconfig文件:系统中对所有用户都普遍适用的配置。若使用 git config 时 用 --system 选项,读写的就是这个文件。 <br>
@@ -446,30 +445,29 @@ git last
 
 <p>还有一个比较常用的是,在解决合并冲突时使用哪种差异分析工具。比如要改用 vimdiff 的话: </p>
 
-<pre><code>  $ git config --global merge.tool vimdiff 
+<pre><code>    $ git config --global merge.tool vimdiff 
 </code></pre>
 
 <p>Git 可以理解 kdiff3,tkdiff,meld,xxdiff,emerge,vimdiff,gvimdiff,ecmerge, 和 opendiff 等合并工具的输出信息。 </p>
 
 <p>修改编辑器：一般可能会是 Vi 或者 Vim </p>
 
-<pre><code>  git config --global core.editor emacs 
+<pre><code>    $ git config --global core.editor emacs 
 </code></pre>
 
 <p>查看配置：</p>
 
-<pre><code>$ git config --list 
+<pre><code>    $ git config --list 
 </code></pre>
 
-<pre><code>1.2 Git 命令别名 
-可以用 git config 为命令设置别名 
-</code></pre>
+<p>1.2 Git 命令别名 <br>
+    可以用 git config 为命令设置别名 </p>
 
 <pre><code>    $ git config --global alias.co checkout 
     $ git config --global alias.br branch
     $ git config --global alias.ci commit
     $ git config --global alias.st status 
-    $  git config --global alias.last 'log -1 HEAD' 
+    $ git config --global alias.last 'log -1 HEAD' 
 </code></pre>
 
 <p>要看最后一次的提交信息,就变得简单多了: </p>
@@ -493,13 +491,13 @@ $ git reset HEAD fileA
 
 <p>2.1 克隆：</p>
 
-<pre><code>    git clone git://github.com/schacon/grit.git  .
+<pre><code>    $ git clone git://github.com/schacon/grit.git  .
 </code></pre>
 
 <p><br>
    用新名字来命名项目：</p>
 
-<pre><code>    git clone git://github.com/schacon/grit.git mygrit 
+<pre><code>    $ git clone git://github.com/schacon/grit.git mygrit 
 </code></pre>
 
 <p><br>
@@ -540,8 +538,8 @@ $ git reset HEAD fileA
     要从 Git 中移除某个文件,就必须要从已跟踪文件清单中移除(确切地说,是从暂存区 域移除),然后提交。可以用 git rm 命令完成此项工作,并连带从工作目录中删除指定的 文件,这样以后就不会出现在未跟踪文件清单中了。 
     如果只是简单地从工作目录中手工删除文件,运行 git status 时就会在 “Changed but not updated” 部分(也就是<em>未暂存</em>清单)看到:  </p>
 
-<pre><code>    $rm grit.gemspec 
-    $git status
+<pre><code>    $ rm grit.gemspec 
+    $ git status
     #On branch master 
     #Changed but not updated:
     #(use "git add/rm &lt;file&gt;..." to update what will be committed) 
@@ -584,8 +582,8 @@ $ git reset HEAD fileA
     2.5 移动文件 <br>
     要在 Git 中对文件改名,可以 这么做: </p>
 
-<pre><code class=" ">    git mv README.txt README
-    git status
+<pre><code class=" ">    $ git mv README.txt README
+    $ git status
     On branch master
     Your branch is ahead of 'origin/master' by 1 commit. 
     Changes to be committed:
@@ -604,18 +602,15 @@ $ git reset HEAD fileA
 <p><br>
     2.6 查看提交历史   </p>
 
-<pre><code>    git log -p -2
+<pre><code>    $ git log -p -2
 </code></pre>
 
 <p><br>
     --stat,仅显示简要的增改行数统计; --pretty 选项,可以指定使用完全不同于默认格式的方式展示提交历 史。比如用 oneline 将每个提交放在一行显示,这在提交数很大时非常有用。另外还有 short,full 和 fuller 可以用,展示的信息或多或少有些不同 </p>
 
-<pre><code>    git log --pretty=oneline
+<pre><code>    $ git log --pretty=oneline
     $ git log --pretty=format:"%h %s" --graph
     $ git log --pretty='%an %cn'
-</code></pre>
-
-<pre><code>   
 </code></pre>
 
 <p>2.7 提交 <br>
@@ -919,9 +914,7 @@ $ git reset HEAD fileA
         你可以运行 git stash branch,这会创建一个新的分支,检出你储藏工作时的所处的提交,重新应用你的工作,如果成功,将会丢弃储藏。</p>
 
 <pre><code>        $ git stash branch testchanges Switched to a new branch "testchanges" 
-        #
-        #
-        Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359) 
+        # Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359) 
 </code></pre>
 
 <p><br>
