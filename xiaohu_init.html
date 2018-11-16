@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+##Personal Info
+Name:阮晓虎                
+Birth: 1986.7   
+Sex: Male   
+Tel:+86-13124757621   
+E-mail:xiaohu_ruan@163.com  
+
+##Working Experience
+* 2017.6-now **同盾科技-内容安全-图像算法专家**   
+作为反欺诈-图像组负责人，带领6人左右算法团队，业务涉及：OCR技术、图像内容安全（暴恐、垃圾广告文本、色情、政治人物识别、人脸对比、图像黑样本检索等）   
+[**项目1**] :通用OCR：包括广告文字、学信网、公积金图片信息、身份证（中国、印尼等）、营业执照、行驶证、驾驶证文本识别   
+\>工作1:基于[CTPN(ECCV2016 Weilin Huang .etc)](https://arxiv.org/pdf/1609.03605.pdf)算法上线通用文字检测服务，CTPN算法主要考虑将图像中的文本行作为一个sequence的思路来做检测，根据这个sequence的行信息确定文本行的y方向位置，再经过文本行连接策略确定文本行位置，在对比[TextBoxes](https://arxiv.org/pdf/1611.06779.pdf)， [Seglink(CVPR2017)](http://mc.eistar.net/UpLoadFiles/Papers/SegLink_CVPR17.pdf), [SSD](https://arxiv.org/pdf/1512.02325.pdf)， 以及segmentation based(FCN, [EAST](https://arxiv.org/pdf/1704.03155.pdf), [mask-rcnn](https://alvinzhu.xyz/2017/10/07/mask-r-cnn/))等算法，从数据标注成本、效率、效果等综合考虑，最终选取CTPN进行训练，调试参数、上线部署，2k规模测试集召回率95.5%，准确率93%，1080TI 11G显存测试平均QPS 26. 已达上线标准。    
+\>工作2:基于CTPN作者已开放测试[源码](https://github.com/tianzhi0549/CTPN)基于[caffe](http://caffe.berkeleyvision.org)框架复现训练代码，实现input\_data\_layer，bbox\_target\_layer, rpn\_cls\_loss\_layer, textline\_bbox\_loss\_layer等相关layer，并进行模型训练。       
+\>工作3:支持印尼身份证、国内二代身份证识别的OCR检测和识别。检测方案使用前文所述CTPN，识别采用基于文本行的序列预测算法。调研[CRNN](https://arxiv.org/pdf/1507.05717.pdf)（使用CNN做特征提取，采用bi-LSTM学习序列的长短期依赖关系，使用[CTC Loss](https://www.cs.toronto.edu/~graves/icml_2006.pdf), [
+Warp-CTC](https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md)作为损失函数学习模型参数）及[seq2seq+Attention model](https://ai.googleblog.com/2017/07/building-your-own-neural-machine.html)（CNN处理文本行特征输入序列，使用带Attention的编码器解码器进行序列依赖关系的学习），最终根据分析及算法效果选用第二种算法进行模型训练、调优及部署，算法处于上线状态。中国二代身份证识别准确率99%以上，印尼身份证根据字段不同，识别率90%～98%。        
+\>工作4:支持学信网、公积金OCR识别中的检测：学信网的OCR检测要求CPU环境的快速算法，考虑学信网图像相对简洁（类似一般PDF文本文件），因此，采用sobel算子、二值化和横向结构的形态学算子(膨胀+腐蚀)，以及二值化形状约束进行检测，最终算法在CPU机器部署，检测召回和精度均大于99%，QPS：52左右，稳定运行时间大于3 months。   
+[**项目2**] :二维码检测与识别          
+\>工作1:采用SSD算法检测+mobilenet_v1网络做分类的二维码检测任务，测试召回率100%，审核量30～50，现已稳定运行6 months。   
+[**项目3**] :用于图像算法的机器学习平台架构设计    
+\>工作1:主导设计机器学习平台组件及架构，包括：数据存储，数据管理，标注平台，训练平台，模型管理，模型发布等功能组件，并推进相关项目小组实现和项目验收。目前，项目正在进展中。     
+&nbsp;
+* 2016.9-2017.5 **阿里杭州iDst-拍立淘团队-资深算法工程师**  
+[**项目1**] :拍立淘类目及数据选品  
+    \>工作：在寻求拍立淘图像搜索效果的提升方面：a). 对全淘商品搜索类目的划分做优化，使得最终个别类目精度提升达5～10个百分点，搜索结果的同款率提升1～2个百分点；b).通过选品数据的扩充，提高query类别的鲁棒性；  
+[**项目2**] :拍立淘类目预测个性化     
+    \>工作：利用实时搜索pvlog的分析及GBDT算法模型，对搜索类目进行辅助预测，实现离线实验效果分析，实时pvlog到个性化特征计算，分布式GBDT模型训练，预测模块online服务开发、部署、压测等，最终各模块达上线状态，效果：使得类目预测精度提升7个百分点左右，同款率提升1～5个百分点不等；  
+[**项目3**] :万物识别     
+    \>工作：利用[Caffe](http://caffe.berkeleyvision.org)进行[tripletloss](https://github.com/luhaofang/tripletloss/blob/master/train.prototxt)训练，修改LMDB数据组织格式，在训练中（相应data_layer）从图像分类类目维度对样本进行过滤；   
+&nbsp;
+* 2014.2-2016.9 **阿里-高德地图研发中心**－基础技术研发部图像组  
+[**项目1**] :地图数据生产道路交通标志**红圆、蓝圆、黄三角**自动识别  
+     \>技术：Adaboost级联分类器，深度学习CNN框架caffe实践，AlexNet、NIN等网络结构应用；多种特征的Adaboost分类器训练，特征选择，建立样本迭代机制  
+     \>效果：算法在众包、高精、智能硬件、DVR等数据源上（测试集规模20w左右）召回率达98%，准确率90～95%，百图错误率(FalseAlarm per hundred)约0.25左右；  
+     \>应用：算法在高德数据生产线的表现，相比人工提效达200%；   
+[**项目2**] :地图数据生产道路交通标志**蓝绿色路牌**自动识别   
+     \>技术：颜色、GraphBase等图像分割，多特征融合、SVM分类器/随即森林分类器迭代循环训练  
+     \>效果：在测试集上识别蓝绿色道路标志牌物理点召回率达80%(后采用CNN深度学习该项指标已被提升至96%);   
+[**项目3**] :地图数据生产道路交通标志**地面行车引导线**自动识别   
+     \>技术：采用消失点算法Locally adaptive soft-voting(LASV)确定道路数据采集图像的消失点，由消失点对图像做俯视图转换，在转换过后的图像上采用Adaboost级联分类器+CNN细分类，得出最终识别结果     
+     \>效果：在高精图像上召回达91%（最后组内其他人采用FCN方法检测，召回93%左右），百图噪声1.2左右   
+[**项目4**] :基于Faster RCNN的蓝方牌矢量化   
+     \>技术：Faster-rcnn目标检测算法，caffe深度网络OCR中文文字分类      
+[**项目5**] :街景图像全景图拼接  
+    \>技术：SIFT匹配，RANSAC算法，摄像头参数估计，拼缝矫正As Projective As Possible(APAP)算法，球面坐标转换   
+    \>效果：该全景图拼接算法为高德地图2014年末的全景图上线提供重要支持；
+
+  
+
+##Skills and Personality   
+* 外语：CET4(558/710),CET6(502/710),IELTS(5.5/9)   
+* 编程语言：C/C++，Python，Shell，java(Map/Reduce) ，SQL，Matlab
+* 图像算法：图像处理基础(匹配，增强，去雾，拼接(APAP)，二值化(OSTU),直方图均衡化等，特征SIFT, SURF, LBP, HOG, PCA等), 机器学习(Adaboost, SVM, Random Forest,K-means, KNN, LDA，LR，GBDT), 深度学习(Caffe CNN, Faster-rcnn，FCN, YOLO, SSD等)
+* 深度学习框架：[Caffe](http://caffe.berkeleyvision.org)，[TensorFlow](https://www.tensorflow.org/)，[MxNet](http://mxnet.io/index.html)    
+* 阿里大数据平台：[MaxCompute](https://help.aliyun.com/product/27797.html)，PROSCHE，MPI等
+* 性格爱好：开朗随和，真诚率直，体育爱好：羽毛球、篮球、游泳、骑行    
+
+##Eeducation
+* 2011.09—2014.06 **硕士** 中科院半导体研究所 高速电路与神经网络实验室 电子信息工程  
+研究方向:图像、视频处理，模式识别，机器学习  
+* 2007.09—2011.06 **本科** 中央民族大学 信息工程学院 电子信息工程
+ 
+
+## FULL CV
+* ［[中文版简历](https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf)］ 
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h2 id="personalinfo">Personal Info</h2>
+
+<p>Name:阮晓虎 <br>
+Birth: 1986.7 <br>
+Sex: Male <br>
+Tel:+86-13124757621 <br>
+E-mail:xiaohu_ruan@163.com  </p>
+
+<h2 id="workingexperience">Working Experience</h2>
+
+<ul>
+<li>2017.6-now <strong>同盾科技-内容安全-图像算法专家</strong> <br>
+作为反欺诈-图像组负责人，带领6人左右算法团队，业务涉及：OCR技术、图像内容安全（暴恐、垃圾广告文本、色情、政治人物识别、人脸对比、图像黑样本检索等） <br>
+[<strong>项目1</strong>] :通用OCR：包括广告文字、学信网、公积金图片信息、身份证（中国、印尼等）、营业执照、行驶证、驾驶证文本识别 <br>
+&gt;工作1:基于<a href="https://arxiv.org/pdf/1609.03605.pdf">CTPN(ECCV2016 Weilin Huang .etc)</a>算法上线通用文字检测服务，CTPN算法主要考虑将图像中的文本行作为一个sequence的思路来做检测，根据这个sequence的行信息确定文本行的y方向位置，再经过文本行连接策略确定文本行位置，在对比<a href="https://arxiv.org/pdf/1611.06779.pdf">TextBoxes</a>， <a href="http://mc.eistar.net/UpLoadFiles/Papers/SegLink_CVPR17.pdf">Seglink(CVPR2017)</a>, <a href="https://arxiv.org/pdf/1512.02325.pdf">SSD</a>， 以及segmentation based(FCN, <a href="https://arxiv.org/pdf/1704.03155.pdf">EAST</a>, <a href="https://alvinzhu.xyz/2017/10/07/mask-r-cnn/">mask-rcnn</a>)等算法，从数据标注成本、效率、效果等综合考虑，最终选取CTPN进行训练，调试参数、上线部署，2k规模测试集召回率95.5%，准确率93%，1080TI 11G显存测试平均QPS 26. 已达上线标准。 <br>
+&gt;工作2:基于CTPN作者已开放测试<a href="https://github.com/tianzhi0549/CTPN">源码</a>基于<a href="http://caffe.berkeleyvision.org">caffe</a>框架复现训练代码，实现input_data_layer，bbox_target_layer, rpn_cls_loss_layer, textline_bbox_loss_layer等相关layer，并进行模型训练。 <br>
+&gt;工作3:支持印尼身份证、国内二代身份证识别的OCR检测和识别。检测方案使用前文所述CTPN，识别采用基于文本行的序列预测算法。调研<a href="https://arxiv.org/pdf/1507.05717.pdf">CRNN</a>（使用CNN做特征提取，采用bi-LSTM学习序列的长短期依赖关系，使用<a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">CTC Loss</a>, <a href="https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md">
+Warp-CTC</a>作为损失函数学习模型参数）及<a href="https://ai.googleblog.com/2017/07/building-your-own-neural-machine.html">seq2seq+Attention model</a>（CNN处理文本行特征输入序列，使用带Attention的编码器解码器进行序列依赖关系的学习），最终根据分析及算法效果选用第二种算法进行模型训练、调优及部署，算法处于上线状态。中国二代身份证识别准确率99%以上，印尼身份证根据字段不同，识别率90%～98%。 <br>
+&gt;工作4:支持学信网、公积金OCR识别中的检测：学信网的OCR检测要求CPU环境的快速算法，考虑学信网图像相对简洁（类似一般PDF文本文件），因此，采用sobel算子、二值化和横向结构的形态学算子(膨胀+腐蚀)，以及二值化形状约束进行检测，最终算法在CPU机器部署，检测召回和精度均大于99%，QPS：52左右，稳定运行时间大于3 months。 <br>
+[<strong>项目2</strong>] :二维码检测与识别 <br>
+&gt;工作1:采用SSD算法检测+mobilenet_v1网络做分类的二维码检测任务，测试召回率100%，审核量30～50，现已稳定运行6 months。 <br>
+[<strong>项目3</strong>] :用于图像算法的机器学习平台架构设计 <br>
+&gt;工作1:主导设计机器学习平台组件及架构，包括：数据存储，数据管理，标注平台，训练平台，模型管理，模型发布等功能组件，并推进相关项目小组实现和项目验收。目前，项目正在进展中。 <br>
+&nbsp;</li>
+<li>2016.9-2017.5 <strong>阿里杭州iDst-拍立淘团队-资深算法工程师</strong> <br>
+[<strong>项目1</strong>] :拍立淘类目及数据选品 <br>
+&gt;工作：在寻求拍立淘图像搜索效果的提升方面：a). 对全淘商品搜索类目的划分做优化，使得最终个别类目精度提升达5～10个百分点，搜索结果的同款率提升1～2个百分点；b).通过选品数据的扩充，提高query类别的鲁棒性； <br>
+[<strong>项目2</strong>] :拍立淘类目预测个性化 <br>
+&gt;工作：利用实时搜索pvlog的分析及GBDT算法模型，对搜索类目进行辅助预测，实现离线实验效果分析，实时pvlog到个性化特征计算，分布式GBDT模型训练，预测模块online服务开发、部署、压测等，最终各模块达上线状态，效果：使得类目预测精度提升7个百分点左右，同款率提升1～5个百分点不等； <br>
+[<strong>项目3</strong>] :万物识别 <br>
+&gt;工作：利用<a href="http://caffe.berkeleyvision.org">Caffe</a>进行<a href="https://github.com/luhaofang/tripletloss/blob/master/train.prototxt">tripletloss</a>训练，修改LMDB数据组织格式，在训练中（相应data_layer）从图像分类类目维度对样本进行过滤； <br>
+&nbsp;</li>
+<li>2014.2-2016.9 <strong>阿里-高德地图研发中心</strong>－基础技术研发部图像组 <br>
+[<strong>项目1</strong>] :地图数据生产道路交通标志<strong>红圆、蓝圆、黄三角</strong>自动识别 <br>
+ &gt;技术：Adaboost级联分类器，深度学习CNN框架caffe实践，AlexNet、NIN等网络结构应用；多种特征的Adaboost分类器训练，特征选择，建立样本迭代机制 <br>
+ &gt;效果：算法在众包、高精、智能硬件、DVR等数据源上（测试集规模20w左右）召回率达98%，准确率90～95%，百图错误率(FalseAlarm per hundred)约0.25左右； <br>
+ &gt;应用：算法在高德数据生产线的表现，相比人工提效达200%； <br>
+[<strong>项目2</strong>] :地图数据生产道路交通标志<strong>蓝绿色路牌</strong>自动识别 <br>
+ &gt;技术：颜色、GraphBase等图像分割，多特征融合、SVM分类器/随即森林分类器迭代循环训练 <br>
+ &gt;效果：在测试集上识别蓝绿色道路标志牌物理点召回率达80%(后采用CNN深度学习该项指标已被提升至96%); <br>
+[<strong>项目3</strong>] :地图数据生产道路交通标志<strong>地面行车引导线</strong>自动识别 <br>
+ &gt;技术：采用消失点算法Locally adaptive soft-voting(LASV)确定道路数据采集图像的消失点，由消失点对图像做俯视图转换，在转换过后的图像上采用Adaboost级联分类器+CNN细分类，得出最终识别结果 <br>
+ &gt;效果：在高精图像上召回达91%（最后组内其他人采用FCN方法检测，召回93%左右），百图噪声1.2左右 <br>
+[<strong>项目4</strong>] :基于Faster RCNN的蓝方牌矢量化 <br>
+ &gt;技术：Faster-rcnn目标检测算法，caffe深度网络OCR中文文字分类 <br>
+[<strong>项目5</strong>] :街景图像全景图拼接 <br>
+&gt;技术：SIFT匹配，RANSAC算法，摄像头参数估计，拼缝矫正As Projective As Possible(APAP)算法，球面坐标转换 <br>
+&gt;效果：该全景图拼接算法为高德地图2014年末的全景图上线提供重要支持；</li>
+</ul>
+
+<h2 id="skillsandpersonality">Skills and Personality</h2>
+
+<ul>
+<li>外语：CET4(558/710),CET6(502/710),IELTS(5.5/9)   </li>
+<li>编程语言：C/C++，Python，Shell，java(Map/Reduce) ，SQL，Matlab</li>
+<li>图像算法：图像处理基础(匹配，增强，去雾，拼接(APAP)，二值化(OSTU),直方图均衡化等，特征SIFT, SURF, LBP, HOG, PCA等), 机器学习(Adaboost, SVM, Random Forest,K-means, KNN, LDA，LR，GBDT), 深度学习(Caffe CNN, Faster-rcnn，FCN, YOLO, SSD等)</li>
+<li>深度学习框架：<a href="http://caffe.berkeleyvision.org">Caffe</a>，<a href="https://www.tensorflow.org/">TensorFlow</a>，<a href="http://mxnet.io/index.html">MxNet</a>    </li>
+<li>阿里大数据平台：<a href="https://help.aliyun.com/product/27797.html">MaxCompute</a>，PROSCHE，MPI等</li>
+<li>性格爱好：开朗随和，真诚率直，体育爱好：羽毛球、篮球、游泳、骑行    </li>
+</ul>
+
+<h2 id="eeducation">Eeducation</h2>
+
+<ul>
+<li>2011.09—2014.06 <strong>硕士</strong> 中科院半导体研究所 高速电路与神经网络实验室 电子信息工程 <br>
+研究方向:图像、视频处理，模式识别，机器学习  </li>
+<li>2007.09—2011.06 <strong>本科</strong> 中央民族大学 信息工程学院 电子信息工程</li>
+</ul>
+
+<h2 id="fullcv">FULL CV</h2>
+
+<ul>
+<li>［<a href="https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf">中文版简历</a>］ </li>
+</ul>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "xiaohu_init.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
