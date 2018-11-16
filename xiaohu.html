@@ -88,8 +88,7 @@ Warp-CTC](https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md
  
 
 ## FULL CV
-* ［[中文版简历](https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf)］   
-
+* ［[中文版简历](https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf)］ 
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -105,13 +104,14 @@ E-mail:xiaohu_ruan@163.com  </p>
 <h2 id="workingexperience">Working Experience</h2>
 
 <ul>
-<li>2017.6-now <strong>同盾科技-内容安全-图像算法工程师</strong> <br>
-[<strong>项目1</strong>] :通用OCR：包括：广告、学信网信息、身份证文本检测和识别 <br>
+<li>2017.6-now <strong>同盾科技-内容安全-图像算法专家</strong> <br>
+作为反欺诈-图像组负责人，带领6人左右算法团队，业务涉及：OCR技术、图像内容安全（暴恐、垃圾广告文本、色情、政治人物识别、人脸对比、图像黑样本检索等） <br>
+[<strong>项目1</strong>] :通用OCR：包括广告文字、学信网、公积金图片信息、身份证（中国、印尼等）、营业执照、行驶证、驾驶证文本识别 <br>
 &gt;工作1:基于<a href="https://arxiv.org/pdf/1609.03605.pdf">CTPN(ECCV2016 Weilin Huang .etc)</a>算法上线通用文字检测服务，CTPN算法主要考虑将图像中的文本行作为一个sequence的思路来做检测，根据这个sequence的行信息确定文本行的y方向位置，再经过文本行连接策略确定文本行位置，在对比<a href="https://arxiv.org/pdf/1611.06779.pdf">TextBoxes</a>， <a href="http://mc.eistar.net/UpLoadFiles/Papers/SegLink_CVPR17.pdf">Seglink(CVPR2017)</a>, <a href="https://arxiv.org/pdf/1512.02325.pdf">SSD</a>， 以及segmentation based(FCN, <a href="https://arxiv.org/pdf/1704.03155.pdf">EAST</a>, <a href="https://alvinzhu.xyz/2017/10/07/mask-r-cnn/">mask-rcnn</a>)等算法，从数据标注成本、效率、效果等综合考虑，最终选取CTPN进行训练，调试参数、上线部署，2k规模测试集召回率95.5%，准确率93%，1080TI 11G显存测试平均QPS 26. 已达上线标准。 <br>
 &gt;工作2:基于CTPN作者已开放测试<a href="https://github.com/tianzhi0549/CTPN">源码</a>基于<a href="http://caffe.berkeleyvision.org">caffe</a>框架复现训练代码，实现input_data_layer，bbox_target_layer, rpn_cls_loss_layer, textline_bbox_loss_layer等相关layer，并进行模型训练。 <br>
-&gt;工作3:支持印尼身份证识别的OCR检测和识别。检测方案使用前文所述CTPN，识别采用基于文本行的序列预测算法。调研<a href="https://arxiv.org/pdf/1507.05717.pdf">CRNN</a>（使用CNN做特征提取，采用bi-LSTM学习序列的长短期依赖关系，使用<a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">CTC Loss</a>, <a href="https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md">
-Warp-CTC</a>作为损失函数学习模型参数）及<a href="https://ai.googleblog.com/2017/07/building-your-own-neural-machine.html">seq2seq+Attention model</a>（CNN处理文本行特征输入序列，使用带Attention的编码器解码器进行序列依赖关系的学习），最终根据分析及算法效果选用第二种算法进行模型训练、调优及部署，算法处于初步上线测试状态。 <br>
-&gt;工作4:支持学信网OCR识别中的检测：学信网的OCR检测要求CPU环境的快速算法，考虑学信网图像相对简洁（类似一般PDF文本文件），因此，采用sobel算子、二值化和横向结构的形态学算子(膨胀+腐蚀)，以及二值化形状约束进行检测，最终算法在CPU机器部署，检测召回和精度均大于99%，QPS：52左右，稳定运行时间大于3 months。 <br>
+&gt;工作3:支持印尼身份证、国内二代身份证识别的OCR检测和识别。检测方案使用前文所述CTPN，识别采用基于文本行的序列预测算法。调研<a href="https://arxiv.org/pdf/1507.05717.pdf">CRNN</a>（使用CNN做特征提取，采用bi-LSTM学习序列的长短期依赖关系，使用<a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">CTC Loss</a>, <a href="https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md">
+Warp-CTC</a>作为损失函数学习模型参数）及<a href="https://ai.googleblog.com/2017/07/building-your-own-neural-machine.html">seq2seq+Attention model</a>（CNN处理文本行特征输入序列，使用带Attention的编码器解码器进行序列依赖关系的学习），最终根据分析及算法效果选用第二种算法进行模型训练、调优及部署，算法处于上线状态。中国二代身份证识别准确率99%以上，印尼身份证根据字段不同，识别率90%～98%。 <br>
+&gt;工作4:支持学信网、公积金OCR识别中的检测：学信网的OCR检测要求CPU环境的快速算法，考虑学信网图像相对简洁（类似一般PDF文本文件），因此，采用sobel算子、二值化和横向结构的形态学算子(膨胀+腐蚀)，以及二值化形状约束进行检测，最终算法在CPU机器部署，检测召回和精度均大于99%，QPS：52左右，稳定运行时间大于3 months。 <br>
 [<strong>项目2</strong>] :二维码检测与识别 <br>
 &gt;工作1:采用SSD算法检测+mobilenet_v1网络做分类的二维码检测任务，测试召回率100%，审核量30～50，现已稳定运行6 months。 <br>
 [<strong>项目3</strong>] :用于图像算法的机器学习平台架构设计 <br>
@@ -165,7 +165,7 @@ Warp-CTC</a>作为损失函数学习模型参数）及<a href="https://ai.google
 <h2 id="fullcv">FULL CV</h2>
 
 <ul>
-<li>［<a href="https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf">中文版简历</a>］  </li>
+<li>［<a href="https://github.com/xiaohujecky/xiaohujecky.github.io/blob/master/%E9%98%AE%E6%99%93%E8%99%8E4years.pdf">中文版简历</a>］ </li>
 </ul>
 <!-- content end -->
 </div>
